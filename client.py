@@ -2,7 +2,7 @@ from google import genai
 from google.genai import types
 import webbrowser
 
-client = genai.Client(api_key="AIzaSyDl8UqjHwy5pDYmnFN7kod2M34sSsCvVPk")
+client = genai.Client(api_key="Your_API_Key")
 
 response = client.models.generate_content(
   model='gemini-2.0-flash',
