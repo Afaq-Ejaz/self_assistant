@@ -15,7 +15,7 @@ engine = pyttsx3.init()
 # Function to make Jarvis speak
 def speak(text):
     engine.say(text)
-    engine.runAndWait()  # Corrected typo: -> 'runAndWait'
+    engine.runAndWait()
 
 # Function to process commands
 def process_command(command):
