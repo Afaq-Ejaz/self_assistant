@@ -1,4 +1,4 @@
-from google import genai # pyright: ignore[reportAttributeAccessIssue]
+from google import genai 
 import webbrowser
 
 client = genai.Client(api_key="AIzaSyDl8UqjHwy5pDYmnFN7kod2M34sSsCvVPk")

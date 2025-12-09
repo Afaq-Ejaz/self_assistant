@@ -8,7 +8,7 @@ import client  # Import the Gemini API module
 import pyaudio
 import google
  
-# Initialize recognizer and text-to-speech engine
+
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
