@@ -1,31 +1,28 @@
-from google import genai
-from google.genai import types
+from google import genai # pyright: ignore[reportAttributeAccessIssue]
 import webbrowser
 
-client = genai.Client(api_key="YOUR_API_KEY")
+client = genai.Client(api_key="AIzaSyDl8UqjHwy5pDYmnFN7kod2M34sSsCvVPk")
 
 def ask_gemini(prompt):
     try:
-        # If the user wants YouTube search
+        # Handle YouTube searches
         if "search for" in prompt.lower():
             query = prompt.lower().replace("search for", "").strip()
-            youtube_url = (
-                "https://www.youtube.com/results?search_query=" + query.replace(" ", "+")
-            )
+            youtube_url = "https://www.youtube.com/results?search_query=" + query.replace(" ", "+")
             webbrowser.open(youtube_url)
             return f"Searching YouTube for: {query}"
 
-        # Otherwise, talk to Gemini
+        # Send prompt to Gemini
         response = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=prompt,
-            config=types.GenerateContentConfig(
-                tools=[
-                    types.Tool(
-                        code_execution=types.ToolCodeExecution()
-                    )
+            config={
+                "tools": [
+                    {
+                        "code_execution": {}
+                    }
                 ]
-            )
+            }
         )
 
         return response.text
